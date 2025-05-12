@@ -11,24 +11,19 @@
   <body>
     <h1>Pomodoro</h1>
     <div id="presets">
-      <button>30 Min</button>
-      <button>5 Min</button>
-      <button>45 Min</button>
-      <button>15 Min</button>
-      <button>10 Min</button>
+      <button onclick="setTime(1800)">30 Min</button>
+      <button onclick="setTime(300)">5 Min</button>
+      <button onclick="setTime(2700)">45 Min</button>
+      <button onclick="setTime(900)">15 Min</button>
+      <button onclick="setTime(600)">10 Min</button>
     </div>
 
-    <div>
-      <span id="min">00</span>
-      <span>:</span>
-      <span id="sec">00</span>
-    </div>
-    <div id="demo"></div>
+    <div id="Timer">00:00</div>
 
     <div id="controls">
-      <button>Start</button>
-      <button>Pause</button>
-      <button>Reset</button>
+      <button onclick="start()">Start</button>
+      <button onclick="pause()">Pause</button>
+      <button onclick="reset()">Reset</button>
     </div>
   </body>
 </html>

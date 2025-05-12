@@ -1,17 +1,51 @@
 var countTime = 1800;
-var timer = setInterval(function () {
-  if (countTime < 0) {
-    clearInterval(timer);
-    document.getElementById("demo").innerHTML = "00:00";
-    return;
-  }
+var isPaused = false;
+var timer = null;
 
-  var minutes = Math.floor(countTime / 60);
-  var seconds = Math.floor(countTime % 60);
+function runTimer() {
+  if (timer !== null) return;
 
-  time = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+  timer = setInterval(function () {
+    if (!isPaused) {
+      if (countTime < 0) {
+        clearTimer();
+        return;
+      }
 
-  document.getElementById("demo").innerHTML = time;
+      var minutes = Math.floor(countTime / 60);
+      var seconds = Math.floor(countTime % 60);
 
-  countTime--;
-}, 1000);
+      // add zero padding to minutes and seconds
+      document.getElementById("Timer").innerHTML =
+        (minutes < 10 ? "0" + minutes : minutes) +
+        ":" +
+        (seconds < 10 ? "0" + seconds : seconds);
+
+      countTime--;
+    }
+  }, 1000);
+}
+
+function clearTimer() {
+  clearInterval(timer);
+  reset();
+  timer = null;
+}
+
+function setTime(seconds) {
+  clearTimer();
+  countTime = seconds;
+  runTimer();
+}
+
+function pause() {
+  isPaused = true;
+}
+
+function start() {
+  isPaused = false;
+}
+
+function reset() {
+  countTime = 0;
+}
