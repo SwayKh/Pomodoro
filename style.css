@@ -200,3 +200,22 @@ Add the correct display in Chrome and Safari.
 summary {
   display: list-item;
 }
+
+/* My CSS Rules */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#Timer {
+  font-size: 4rem;
+  font-weight: 100;
+}
